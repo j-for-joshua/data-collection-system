@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Arrears Application Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename ='style.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: 
+                    linear-gradient(rgba(255, 255, 255, 0.18), rgba(167, 115, 115, 0.18)),
+                    url("/static/fmiti.jpg") no-repeat center center;
+                background-size: cover;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #222;
+        }
+        
+        header {
+            font-family: calibri;
+            background: linear-gradient(135deg, #008751, #006b40);
+            background-attachment: fixed;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background: #006b40;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            font-family: calibri;
+        }
+
+        nav a {
+            display: block;
+            padding: 14px 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            background: #004f2f;
+            transform: translateY(-1px);
+        }
+
+        form {
+            width: 25vw;
+            height: 55vh;
+            padding-top: 30px;
+            margin: 100px auto;
+            border-radius: 9px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 20vw;
+            height: 6vh;
+            padding: 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.1em;
+            outline: none;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        input:focus {
+            border-color: #008751;
+        }
+
+        button {
+            width: 100px;
+            height: 45px;
+            border: none;
+            background-color: #008751;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background: #023b25;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        div {
+            margin: 10px 25px;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <header>
+    <h1> FEDERAL MINISTRY OF INDUSTRY TRADE AND INVESTMENT</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('export_data') }}">Retrieve Data</a></li>
+            <li><a href="{{ url_for('report_issue')}}">Report Issue</a></li>
+        </ul>
+    </nav>
+        {% with messages = get_flashed_messages(with_categories=true)%}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class = "flash {{ category }}"> {{message}}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    <div class = "container">
+        <form method = "POST" action = "/collect_biodata">
+            <div><input type = "text", name = "Firstname", placeholder = "Enter your Firstname" required></div>
+            <div><input type = "text", name = "Surname", placeholder = "Enter your Surname" required></div>
+            <div><input type = "text", name = "Othernames", Placeholder = "Other names"></div>
+            <div><input type = "number", name = "Gradelevel", placeholder = "Current Grade level" required></div>
+            <div><input type = "number", name = "Step", placeholder = "Current Step" required></div>
+            <div><button type = submit>Submit</button></div>
+        </form>
+    </div>
+</body>
+</html>

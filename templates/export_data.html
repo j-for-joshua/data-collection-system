@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Download Applications</title>
+        <link rel = "stylesheet" href = "{{ url_for('static', filename ='style.css') }}">
+    </head>
+    <body>
+        <div>
+            <header>
+            <h1> FEDERAL MINISTRY OF INDUSTRY TRADE AND INVESTMENT</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('export_data') }}">Retrieve Data</a></li>
+                    <li><a href="{{ url_for('report_issue')}}">Report Issue</a></li>
+                </ul>
+            </nav>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true)%}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class = "flash {{ category }}"> {{message}}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class = "container">
+            <form method = "POST" action = "/export_data">
+                <input type = text name = "password" placeholder = "Enter Password">
+                <button type = submit>Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

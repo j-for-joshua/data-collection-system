@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report an Issue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename ='style.css') }}">
+    <style>
+        p {
+            background-color: rgba(255, 255, 255, 0.86);
+            width: 60%;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            font-size: 20px;
+            color: #243022;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+
+        #center {
+            min-height: calc(100vh - 140px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>   
+    <div>
+        <header>
+            <h1> FEDERAL MINISTRY OF INDUSTRY TRADE AND INVESTMENT</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('export_data') }}">Retrieve Data</a></li>
+                <li><a href="{{ url_for('report_issue')}}">Report Issue</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id = "center">
+        <p>Please visit the IPPIS Accounts Department, Room 130, Block C, Old Federal Secretariat Building, to report any issues.</p>
+    </div>
+</body>
+</html>
