@@ -21,7 +21,7 @@ class Staff_data(db.Model):
     gl = db.Column(db.Integer, nullable=False)
     step = db.Column(db.Integer, nullable=False)
 
-@app.route("/home")
+@app.route("/")
 def home():
     return render_template("homepage.html")
 
