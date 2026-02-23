@@ -132,3 +132,13 @@ button:hover {
   border-radius: 8px;
   margin-top: 15px;
 }
+
+p { 
+  background: #ede4d488;
+  padding: 12px 16px;
+  border-radius: 8px;
+  width: fit-content;
+  margin: 30px auto 0 auto;
+  color: black;
+  font-size: 14px;
+  }
